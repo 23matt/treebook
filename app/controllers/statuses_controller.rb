@@ -10,6 +10,7 @@ class StatusesController < ApplicationController
   # GET /statuses/1
   # GET /statuses/1.json
   def show
+    puts "debug msg #{@status.inspect}"
   end
 
   # GET /statuses/new
@@ -60,15 +61,19 @@ class StatusesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status
       @status = Status.find(params[:id])
+      puts "in set status"
+    end
+
+    def set_user
+      @status.user = User.find_by(@status.user_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_params
-      params.require(:status).permit(:name, :content)
+      params.require(:status).permit(:content, :user_id)
     end
 end
