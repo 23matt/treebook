@@ -13,3 +13,9 @@ gislerm:
  last_name: "Gisler"
  email: "matthias@gisler.me"
  profile_name: "gislerm"
+
+danielm:
+ first_name: "Daniel"
+ last_name: "Meier"
+ email: "dm@dm.de"
+ profile_name: "danielm"
